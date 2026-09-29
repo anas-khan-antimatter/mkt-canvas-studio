@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-canvas-50: #f8f7f4;
+    --color-canvas-100: #efece5;
+    --color-canvas-200: #ddd6c8;
+    --color-canvas-300: #c5b99f;
+    --color-canvas-400: #ae9d7a;
+    --color-canvas-500: #9e8a62;
+    --color-canvas-600: #8a7652;
+    --color-canvas-700: #735f44;
+    --color-canvas-800: #5f4e3c;
+    --color-canvas-900: #4f4133;
+    --color-canvas-950: #2a221b;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-canvas-50 text-ink-950 antialiased;
+  }
+
+  ::selection {
+    @apply bg-canvas-300 text-ink-950;
+  }
+
+  /* Experimental typography */
+  .heading-xl {
+    @apply text-6xl md:text-8xl lg:text-9xl font-display leading-[0.85] tracking-tight;
+  }
+
+  .heading-lg {
+    @apply text-4xl md:text-5xl lg:text-6xl font-display leading-[0.9] tracking-tight;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl lg:text-4xl font-display leading-[0.95] tracking-tight;
+  }
+
+  .heading-sm {
+    @apply text-lg md:text-xl font-display leading-tight tracking-tight;
+  }
+
+  .body-lg {
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+
+  .body-base {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  .eyebrow {
+    @apply text-xs md:text-sm uppercase tracking-[0.2em] font-sans;
+  }
+}
+
+@layer utilities {
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-triggered reveal via Intersection Observer — no third-party lib needed */
