@@ -1,0 +1,23 @@
+{
+  "root": "/tmp/am-ws/ch_mkt_canvasstudio_0523cd",
+  "name": "ch_mkt_canvasstudio_0523cd",
+  "generatedAt": "2026-09-29T23:07:45.833Z",
+  "fileCount": 1,
+  "dirCount": 1,
+  "languages": {
+    "Markdown": 1
+  },
+  "keyFiles": [
+    "README.md"
+  ],
+  "directories": [
+    {
+      "dir": "(root)",
+      "fileCount": 1,
+      "files": [
+        "README.md"
+      ],
+      "symbols": []
+    }
+  ]
+}
