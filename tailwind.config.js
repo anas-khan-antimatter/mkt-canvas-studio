@@ -44,6 +44,7 @@ module.exports = {
         'fade-up': 'fadeUp 0.8s ease-out forwards',
         'scale-in': 'scaleIn 0.6s ease-out forwards',
         'reveal': 'reveal 1.2s ease-out forwards',
+        'marquee': 'marquee 30s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -61,6 +62,10 @@ module.exports = {
         reveal: {
           '0%': { clipPath: 'inset(0 100% 0 0)' },
           '100%': { clipPath: 'inset(0 0 0 0)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
     },
