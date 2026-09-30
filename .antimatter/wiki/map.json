@@ -1,23 +1,135 @@
 {
-  "root": "/tmp/am-ws/ch_mkt_canvasstudio_0523cd",
-  "name": "ch_mkt_canvasstudio_0523cd",
-  "generatedAt": "2026-09-29T23:07:45.833Z",
-  "fileCount": 1,
-  "dirCount": 1,
+  "root": "/tmp/am-ws/c-1790732964930-makg6",
+  "name": "c-1790732964930-makg6",
+  "generatedAt": "2026-09-30T17:45:56.154Z",
+  "fileCount": 21,
+  "dirCount": 6,
   "languages": {
-    "Markdown": 1
+    "Markdown": 6,
+    "JSON": 4,
+    "JavaScript": 3,
+    "CSS": 1,
+    "TypeScript": 6
   },
   "keyFiles": [
-    "README.md"
+    "package.json",
+    "README.md",
+    "tsconfig.json"
   ],
   "directories": [
     {
-      "dir": "(root)",
-      "fileCount": 1,
+      "dir": ".antimatter/wiki",
+      "fileCount": 6,
       "files": [
-        "README.md"
+        "index.md",
+        "log.md",
+        "map.json",
+        "map.md",
+        "overview.md",
+        "schema.md"
       ],
       "symbols": []
+    },
+    {
+      "dir": "(root)",
+      "fileCount": 8,
+      "files": [
+        ".gitignore",
+        "next.config.js",
+        "package-lock.json",
+        "package.json",
+        "postcss.config.js",
+        "README.md",
+        "tailwind.config.js",
+        "tsconfig.json"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app",
+      "fileCount": 3,
+      "files": [
+        "globals.css",
+        "layout.tsx",
+        "page.tsx"
+      ],
+      "symbols": [
+        {
+          "name": "metadata",
+          "kind": "const"
+        }
+      ]
+    },
+    {
+      "dir": "src/app/work",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/components",
+      "fileCount": 2,
+      "files": [
+        "header.tsx",
+        "scroll-reveal.tsx"
+      ],
+      "symbols": [
+        {
+          "name": "Header",
+          "kind": "fn"
+        },
+        {
+          "name": "ScrollReveal",
+          "kind": "fn"
+        }
+      ]
+    },
+    {
+      "dir": "src/lib",
+      "fileCount": 1,
+      "files": [
+        "studio.ts"
+      ],
+      "symbols": [
+        {
+          "name": "Project",
+          "kind": "interface"
+        },
+        {
+          "name": "TeamMember",
+          "kind": "interface"
+        },
+        {
+          "name": "Category",
+          "kind": "type"
+        },
+        {
+          "name": "projects",
+          "kind": "const"
+        },
+        {
+          "name": "team",
+          "kind": "const"
+        },
+        {
+          "name": "capabilitiesData",
+          "kind": "const"
+        },
+        {
+          "name": "creativeTerritories",
+          "kind": "const"
+        },
+        {
+          "name": "services",
+          "kind": "const"
+        },
+        {
+          "name": "processSteps",
+          "kind": "const"
+        }
+      ]
     }
   ]
 }
