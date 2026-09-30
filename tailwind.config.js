@@ -38,6 +38,19 @@ module.exports = {
           900: '#121212',
           950: '#0a0a0a',
         },
+        neon: {
+          50: '#ebffe6',
+          100: '#ddffcc',
+          200: '#ccff99',
+          300: '#bbff66',
+          400: '#aaff33',
+          500: '#99ff00',
+          600: '#88e600',
+          700: '#77cc00',
+          800: '#66b300',
+          900: '#559900',
+          950: '#448000',
+        },
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out forwards',
@@ -45,6 +58,7 @@ module.exports = {
         'scale-in': 'scaleIn 0.6s ease-out forwards',
         'reveal': 'reveal 1.2s ease-out forwards',
         'marquee': 'marquee 30s linear infinite',
+        'pulse-neon': 'pulseNeon 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -66,6 +80,10 @@ module.exports = {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        pulseNeon: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.4' },
         },
       },
     },
