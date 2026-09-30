@@ -1,19 +1,21 @@
-import Link from 'next/link'
-import { ScrollReveal } from '@/components/scroll-reveal'
+import Link from "next/link";
 
 const navLinks = [
-  { label: 'Work', href: '#work' },
-  { label: 'Services', href: '#services' },
-  { label: 'Process', href: '#process' },
-  { label: 'Team', href: '#team' },
-  { label: 'Contact', href: '#contact' },
-]
+  { label: "Work", href: "/work" },
+  { label: "Reel", href: "/reel" },
+  { label: "Capabilities", href: "/capabilities" },
+  { label: "Team", href: "/team" },
+  { label: "Brief", href: "/brief" },
+];
 
 export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
       <nav className="flex items-center justify-between px-6 md:px-12 py-6">
-        <Link href="/" className="text-white text-sm uppercase tracking-[0.3em] font-display">
+        <Link
+          href="/"
+          className="text-white text-sm uppercase tracking-[0.3em] font-display"
+        >
           Canvas Studio
         </Link>
         <ul className="hidden md:flex items-center gap-8">
@@ -29,12 +31,12 @@ export function Header() {
           ))}
         </ul>
         <Link
-          href="#contact"
+          href="/brief"
           className="text-white text-xs uppercase tracking-[0.2em] border border-white/30 px-5 py-2 rounded-full hover:bg-white hover:text-ink-950 transition-all"
         >
           Start a Project
         </Link>
       </nav>
     </header>
-  )
+  );
 }
