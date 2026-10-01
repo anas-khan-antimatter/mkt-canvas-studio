@@ -34,25 +34,19 @@ const suffixes = ['ora', 'us', 'ra', 'ta', 'ca', 'i', 'ma', 'is', 'um', 'on', 'e
 function generateNames(industry: string, vibe: string): string[] {
   const seed = industry.length + vibe.length
   const names: string[] = []
-
   for (let i = 0; i < 8; i++) {
     const pIdx = (seed + i * 3) % prefixes.length
     const sIdx = (seed + i * 7 + 2) % suffixes.length
-    const prefix = prefixes[pIdx]
-    const suffix = suffixes[sIdx]
-    names.push(`${prefix}${suffix}`.toUpperCase())
+    const p = prefixes[pIdx]
+    const s = suffixes[sIdx]
+    names.push((p + s).toUpperCase())
   }
-
-  // Shuffle deterministically
   for (let i = names.length - 1; i > 0; i--) {
     const j = (seed + i) % (i + 1);
     [names[i], names[j]] = [names[j], names[i]]
   }
-
-  return names.map((n, idx) => {
-    const extra = idx === 0 ? '' : idx === 1 ? '°' : idx === 2 ? '.' : idx === 3 ? ' AI' : idx === 4 ? ' Co.' : idx === 5 ? ' Studio' : idx === 6 ? ' Labs' : 'x'
-    return `${n}${extra}`
-  })
+  const extras = ['', '°', '.', ' AI', ' Co.', ' Studio', ' Labs', 'x']
+  return names.map((n, idx) => n + extras[idx % extras.length])
 }
 
 export default function GeneratorPage() {
@@ -67,19 +61,15 @@ export default function GeneratorPage() {
   const handleGenerate = async () => {
     setGenerating(true)
     setFetched(true)
-    // Generate local names
     const localNames = generateNames(industry, vibe)
     setNames(localNames)
-
-    // Fetch from API
     try {
-      const res = await fetch(`/api/names?industry=${encodeURIComponent(industry)}&vibe=${encodeURIComponent(vibe)}`)
+      const res = await fetch('/api/names?industry=' + encodeURIComponent(industry) + '&vibe=' + encodeURIComponent(vibe))
       const data = await res.json()
       if (data.names) setApiNames(data.names)
     } catch {
-      // fallback — local is fine
+      // fallback
     }
-
     setGenerating(false)
   }
 
@@ -88,6 +78,8 @@ export default function GeneratorPage() {
     setCopiedIndex(idx)
     setTimeout(() => setCopiedIndex(null), 2000)
   }
+
+  const displayNames = (fetched && apiNames.length > 0 ? apiNames : names)
 
   return (
     <>
@@ -99,16 +91,17 @@ export default function GeneratorPage() {
           </ScrollReveal>
           <ScrollReveal>
             <h1 className="heading-xl mb-6 max-w-5xl">
-              Find a name worth <span className="text-neon-400 neon-glow">building</span> around.
+              Find a name worth{' '}
+              <span className="text-neon-400 neon-glow">building</span>{' '}
+              around.
             </h1>
           </ScrollReveal>
           <ScrollReveal>
             <p className="body-xl text-ink-400 max-w-2xl mb-16">
-              Pick your industry and creative vibe. We&apos;ll instantly generate 8 brand-ready name ideas — no account, no paywall.
+              Pick your industry and creative vibe. We&apos;ll instantly generate 8 brand-ready name ideas.
             </p>
           </ScrollReveal>
 
-          {/* Controls */}
           <ScrollReveal>
             <div className="grid md:grid-cols-2 gap-8 mb-16">
               <div>
@@ -145,27 +138,30 @@ export default function GeneratorPage() {
               className="w-full inline-flex items-center justify-center gap-3 bg-neon-400 text-ink-950 px-8 py-5 rounded-full text-sm uppercase tracking-[0.15em] font-bold hover:bg-neon-300 transition-all neon-border disabled:opacity-50 disabled:cursor-not-allowed mb-20"
             >
               {generating ? (
-                <><RefreshCw size={18} className="animate-spin" /> Generating…</>
+                <span className="inline-flex items-center gap-3">
+                  <RefreshCw size={18} className="animate-spin" /> Generating&hellip;
+                </span>
               ) : (
-                <><Sparkles size={18} /> Generate Name Ideas</>
+                <span className="inline-flex items-center gap-3">
+                  <Sparkles size={18} /> Generate Name Ideas
+                </span>
               )}
             </button>
           </ScrollReveal>
 
-          {/* Results */}
-          {names.length > 0 && (
+          {displayNames.length > 0 && (
             <ScrollReveal>
               <div className="bg-ink-900/50 border border-neon-400/20 rounded-3xl overflow-hidden backdrop-blur-sm">
                 <div className="px-8 py-6 border-b border-neon-400/10 flex items-center justify-between">
                   <span className="eyebrow text-neon-400">
-                    {fetched ? apiNames.length > 0 ? 'API-powered name ideas' : 'Generated names' }
+                    {fetched ? (apiNames.length > 0 ? 'API-powered name ideas' : 'Generated names') : 'Generated names'}
                   </span>
-                  <span className="text-ink-500 text-xs">{names.length} ideas</span>
+                  <span className="text-ink-500 text-xs">{displayNames.length} ideas</span>
                 </div>
                 <div className="divide-y divide-neon-400/10">
-                  {(fetched && apiNames.length > 0 ? apiNames : names).map((name, idx) => (
+                  {displayNames.map((name, idx) => (
                     <div
-                      key={`${name}-${idx}`}
+                      key={name + idx}
                       className="flex items-center justify-between px-8 py-5 hover:bg-neon-400/5 transition-colors group"
                     >
                       <div className="flex items-center gap-4">
@@ -188,12 +184,11 @@ export default function GeneratorPage() {
             </ScrollReveal>
           )}
 
-          {/* CTA */}
           <ScrollReveal>
             <div className="mt-20 text-center border-t border-neon-400/10 pt-16">
               <h3 className="heading-md mb-4">Found one you love?</h3>
               <p className="body-lg text-ink-400 mb-8 max-w-lg mx-auto">
-                Let&apos;s build a full brand identity around it — from logo to launch.
+                Let&apos;s build a full brand identity around it &mdash; from logo to launch.
               </p>
               <Link
                 href="/#contact"
