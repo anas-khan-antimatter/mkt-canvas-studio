@@ -2,8 +2,26 @@
 
 import { useEffect, useRef } from 'react'
 
-export function ScrollReveal({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+type Direction = 'up' | 'left' | 'right' | 'fade'
+
+export function ScrollReveal({
+  children,
+  className = '',
+  direction = 'up',
+}: {
+  children: React.ReactNode
+  className?: string
+  direction?: Direction
+}) {
   const ref = useRef<HTMLDivElement>(null)
+
+  const baseClass = direction === 'up'
+    ? 'scroll-reveal'
+    : direction === 'left'
+    ? 'scroll-reveal-left'
+    : direction === 'right'
+    ? 'scroll-reveal-right'
+    : 'scroll-reveal'
 
   useEffect(() => {
     const el = ref.current
@@ -15,14 +33,14 @@ export function ScrollReveal({ children, className = '' }: { children: React.Rea
           observer.unobserve(el)
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     )
     observer.observe(el)
     return () => observer.disconnect()
   }, [])
 
   return (
-    <div ref={ref} className={`scroll-reveal ${className}`}>
+    <div ref={ref} className={`${baseClass} ${className}`}>
       {children}
     </div>
   )
