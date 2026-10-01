@@ -1,11 +1,11 @@
 # Workspace Map — c-1790732964930-makg6
-_Generated 2026-09-30 · 19 files · 4 directories_  
+_Generated 2026-10-01 · 20 files · 5 directories_  
 _Deterministic structural map. Regenerate with the `map` tool or "Antimatter: Map Workspace". Do not hand-edit._
 
 ## Languages
 - Markdown: 6
+- TypeScript: 5
 - JSON: 4
-- TypeScript: 4
 - JavaScript: 3
 - CSS: 1
 
@@ -28,3 +28,7 @@ _Deterministic structural map. Regenerate with the `map` tool or "Antimatter: Ma
 ### `src/components` — 2 files
 - symbols: Header (fn), ScrollReveal (fn)
 - files: header.tsx, scroll-reveal.tsx
+
+### `src/data` — 1 file
+- symbols: CaseStudy (interface), Service (interface), ProcessStep (interface), TeamMember (interface), caseStudies (const), services (const), processSteps (const), team (const)
+- files: studio.ts

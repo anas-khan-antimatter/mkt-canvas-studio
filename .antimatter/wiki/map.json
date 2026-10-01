@@ -1,15 +1,15 @@
 {
   "root": "/tmp/am-ws/c-1790732964930-makg6",
   "name": "c-1790732964930-makg6",
-  "generatedAt": "2026-09-30T17:50:24.530Z",
-  "fileCount": 19,
-  "dirCount": 4,
+  "generatedAt": "2026-10-01T03:14:43.941Z",
+  "fileCount": 20,
+  "dirCount": 5,
   "languages": {
     "Markdown": 6,
     "JSON": 4,
     "JavaScript": 3,
     "CSS": 1,
-    "TypeScript": 4
+    "TypeScript": 5
   },
   "keyFiles": [
     "package.json",
@@ -75,6 +75,47 @@
         {
           "name": "ScrollReveal",
           "kind": "fn"
+        }
+      ]
+    },
+    {
+      "dir": "src/data",
+      "fileCount": 1,
+      "files": [
+        "studio.ts"
+      ],
+      "symbols": [
+        {
+          "name": "CaseStudy",
+          "kind": "interface"
+        },
+        {
+          "name": "Service",
+          "kind": "interface"
+        },
+        {
+          "name": "ProcessStep",
+          "kind": "interface"
+        },
+        {
+          "name": "TeamMember",
+          "kind": "interface"
+        },
+        {
+          "name": "caseStudies",
+          "kind": "const"
+        },
+        {
+          "name": "services",
+          "kind": "const"
+        },
+        {
+          "name": "processSteps",
+          "kind": "const"
+        },
+        {
+          "name": "team",
+          "kind": "const"
         }
       ]
     }
