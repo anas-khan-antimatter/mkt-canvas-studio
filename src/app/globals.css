@@ -22,28 +22,36 @@
   }
 
   body {
-    @apply bg-canvas-50 text-ink-950 antialiased;
+    @apply bg-ink-50 text-ink-950 antialiased;
   }
 
   ::selection {
-    @apply bg-canvas-300 text-ink-950;
+    @apply bg-neon-400 text-ink-950;
   }
 
-  /* Experimental typography */
+  /* ─── Experimental oversized typography ─── */
+  .heading-xxl {
+    @apply text-7xl md:text-9xl lg:text-[10rem] font-display leading-[0.8] tracking-tighter;
+  }
+
   .heading-xl {
-    @apply text-6xl md:text-8xl lg:text-9xl font-display leading-[0.85] tracking-tight;
+    @apply text-6xl md:text-8xl lg:text-9xl font-display leading-[0.82] tracking-tighter;
   }
 
   .heading-lg {
-    @apply text-4xl md:text-5xl lg:text-6xl font-display leading-[0.9] tracking-tight;
+    @apply text-5xl md:text-7xl lg:text-8xl font-display leading-[0.85] tracking-tight;
   }
 
   .heading-md {
-    @apply text-2xl md:text-3xl lg:text-4xl font-display leading-[0.95] tracking-tight;
+    @apply text-3xl md:text-5xl lg:text-6xl font-display leading-[0.88] tracking-tight;
   }
 
   .heading-sm {
-    @apply text-lg md:text-xl font-display leading-tight tracking-tight;
+    @apply text-xl md:text-2xl lg:text-3xl font-display leading-[0.95] tracking-tight;
+  }
+
+  .body-xl {
+    @apply text-xl md:text-2xl leading-relaxed;
   }
 
   .body-lg {
@@ -55,7 +63,45 @@
   }
 
   .eyebrow {
-    @apply text-xs md:text-sm uppercase tracking-[0.2em] font-sans;
+    @apply text-xs md:text-sm uppercase tracking-[0.25em] font-sans font-medium;
+  }
+
+  /* ─── Neon glow utility ─── */
+  .neon-glow {
+    text-shadow: 0 0 20px rgba(153, 255, 0, 0.5), 0 0 60px rgba(153, 255, 0, 0.2);
+  }
+
+  .neon-border {
+    box-shadow: 0 0 0 1px rgba(153, 255, 0, 0.3), 0 0 20px rgba(153, 255, 0, 0.1);
+  }
+
+  .neon-bg {
+    background: linear-gradient(135deg, rgba(153, 255, 0, 0.15), rgba(153, 255, 0, 0.05));
+  }
+
+  /* ─── Asymmetric grid helpers ─── */
+  .grid-asymmetric {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 0.8fr;
+  }
+
+  .grid-offset {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr 1fr;
+  }
+
+  .grid-stagger {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .rotate-negative {
+    transform: rotate(-2deg);
+  }
+
+  .rotate-positive {
+    transform: rotate(1.5deg);
   }
 }
 
@@ -68,14 +114,60 @@
 
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(50px) scale(0.97);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .scroll-reveal.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+
+  .scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-/* Scroll-triggered reveal via Intersection Observer — no third-party lib needed */
+/* ─── Reveal keyframes ─── */
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-80px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(80px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulseNeon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

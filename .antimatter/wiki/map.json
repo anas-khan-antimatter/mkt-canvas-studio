@@ -1,12 +1,12 @@
 {
   "root": "/tmp/am-ws/c-1790732964930-makg6",
   "name": "c-1790732964930-makg6",
-  "generatedAt": "2026-10-01T03:14:43.941Z",
-  "fileCount": 20,
+  "generatedAt": "2026-10-01T04:19:01.121Z",
+  "fileCount": 21,
   "dirCount": 5,
   "languages": {
     "Markdown": 6,
-    "JSON": 4,
+    "JSON": 5,
     "JavaScript": 3,
     "CSS": 1,
     "TypeScript": 5
@@ -32,7 +32,7 @@
     },
     {
       "dir": "(root)",
-      "fileCount": 8,
+      "fileCount": 9,
       "files": [
         ".gitignore",
         "next.config.js",
@@ -41,7 +41,8 @@
         "postcss.config.js",
         "README.md",
         "tailwind.config.js",
-        "tsconfig.json"
+        "tsconfig.json",
+        "vercel.json"
       ],
       "symbols": []
     },
