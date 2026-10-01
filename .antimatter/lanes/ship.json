@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "runsOn": "ubuntu-latest",
+  "setup": [
+    "npm ci"
+  ],
+  "build": [
+    "npm run build"
+  ],
+  "probes": [
+    {
+      "kind": "browser",
+      "url": "/"
+    },
+    {
+      "kind": "browser",
+      "url": "/generator"
+    },
+    {
+      "kind": "browser",
+      "url": "/templated"
+    },
+    {
+      "kind": "browser",
+      "url": "/work"
+    },
+    {
+      "kind": "http",
+      "url": "/api/names"
+    }
+  ]
+}
