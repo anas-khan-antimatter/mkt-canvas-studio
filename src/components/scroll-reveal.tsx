@@ -30,7 +30,7 @@ export function ScrollReveal({
       ([entry]) => {
         if (entry.isIntersecting) {
           el.classList.add('revealed')
-          observer.unobserve(el)
+          observer.disconnect()
         }
       },
       { threshold: 0.1 }

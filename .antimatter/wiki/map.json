@@ -1,15 +1,16 @@
 {
   "root": "/tmp/am-ws/c-1790732964930-makg6",
   "name": "c-1790732964930-makg6",
-  "generatedAt": "2026-10-01T04:19:01.121Z",
-  "fileCount": 21,
-  "dirCount": 5,
+  "generatedAt": "2026-10-02T22:11:20.719Z",
+  "fileCount": 30,
+  "dirCount": 13,
   "languages": {
+    "JSON": 6,
     "Markdown": 6,
-    "JSON": 5,
-    "JavaScript": 3,
-    "CSS": 1,
-    "TypeScript": 5
+    "JavaScript": 5,
+    "YAML": 1,
+    "TypeScript": 10,
+    "CSS": 1
   },
   "keyFiles": [
     "package.json",
@@ -17,6 +18,14 @@
     "tsconfig.json"
   ],
   "directories": [
+    {
+      "dir": ".antimatter/lanes",
+      "fileCount": 1,
+      "files": [
+        "ship.json"
+      ],
+      "symbols": []
+    },
     {
       "dir": ".antimatter/wiki",
       "fileCount": 6,
@@ -27,6 +36,23 @@
         "map.md",
         "overview.md",
         "schema.md"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": ".github/antimatter",
+      "fileCount": 2,
+      "files": [
+        "lane-runner.mjs",
+        "store-release.mjs"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": ".github/workflows",
+      "fileCount": 1,
+      "files": [
+        "antimatter-lane.yml"
       ],
       "symbols": []
     },
@@ -60,6 +86,51 @@
           "kind": "const"
         }
       ]
+    },
+    {
+      "dir": "src/app/api/names",
+      "fileCount": 1,
+      "files": [
+        "route.ts"
+      ],
+      "symbols": [
+        {
+          "name": "GET",
+          "kind": "fn"
+        }
+      ]
+    },
+    {
+      "dir": "src/app/generator",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app/templated",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app/work",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app/work/[slug]",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
     },
     {
       "dir": "src/components",
